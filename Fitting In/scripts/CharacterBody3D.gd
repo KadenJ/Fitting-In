@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -33,6 +34,8 @@ func cameraLook (Movement:Vector2):
 
 var timerStart = false
 func _physics_process(delta):
+	$Camera3D/SubViewportContainer/SubViewport/viewModelCamera.global_transform = MainCamera.global_transform
+	
 	if is_on_floor():
 		airAction = true
 	# Add the gravity.

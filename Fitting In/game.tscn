@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dav5vh4jq24xy" path="res://laser.tscn" id="4_kxpuy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csik5"]
-albedo_color = Color(0.58889, 0.301337, 0.886652, 1)
+albedo_color = Color(0, 0.718083, 0.668257, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8d2oe"]
 size = Vector3(12.7529, 1, 13.3589)
@@ -33,7 +33,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 5)
 script = ExtResource("3_ql35d")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="room"]
-transform = Transform3D(1, 0, 0, 0, 0.0612924, 0.99812, 0, -0.99812, 0.0612924, 6, 6, 6)
+transform = Transform3D(1, 0, 0, 0, 0.0612924, 0.99812, 0, -0.99812, 0.0612924, 0, 0, 0)
+layers = 7
 omni_range = 385.195
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="room"]
