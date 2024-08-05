@@ -1,0 +1,174 @@
+[gd_scene load_steps=8 format=3 uid="uid://cru22w5pf340b"]
+
+[ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="1_vkjuc"]
+[ext_resource type="Script" path="res://scripts/pauseMenu.gd" id="2_3cn6c"]
+[ext_resource type="Shader" path="res://shaders/pauseMenu.gdshader" id="3_o83jt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5bvio"]
+radius = 0.332789
+height = 1.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k43eg"]
+albedo_color = Color(1, 0.207843, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ge1g8"]
+material = SubResource("StandardMaterial3D_k43eg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fgmt4"]
+shader = ExtResource("3_o83jt")
+shader_parameter/amount = 3.0
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_vkjuc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0.29934, 0)
+shape = SubResource("CapsuleShape3D_5bvio")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00566, 0)
+mesh = SubResource("BoxMesh_ge1g8")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79759, -0.830783)
+current = true
+
+[node name="wallTimer" type="Timer" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="wallEnergy" type="HSlider" parent="HUD"]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -62.0
+offset_right = 311.0
+offset_bottom = -46.0
+grow_vertical = 0
+max_value = 1.0
+step = 0.0
+editable = false
+scrollable = false
+
+[node name="airActionIndicator" type="CheckBox" parent="HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -85.9999
+offset_right = 69.0
+offset_bottom = -61.9999
+grow_vertical = 0
+scale = Vector2(1.91, 2.775)
+button_mask = 0
+
+[node name="Label" type="Label" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -274.0
+offset_right = 20.0
+offset_bottom = -251.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.321197, 0.997455, 1, 0.572549)
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="pauseMenu" type="Control" parent="HUD"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3cn6c")
+
+[node name="ColorRect" type="ColorRect" parent="HUD/pauseMenu"]
+material = SubResource("ShaderMaterial_fgmt4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="MarginContainer" parent="HUD/pauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -128.5
+offset_right = 106.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="HUD/pauseMenu/menu"]
+layout_mode = 2
+color = Color(0.744181, 0.744181, 0.744181, 1)
+
+[node name="Label" type="Label" parent="HUD/pauseMenu/menu"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Pause
+"
+horizontal_alignment = 1
+
+[node name="buttons" type="VBoxContainer" parent="HUD/pauseMenu/menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 2
+alignment = 1
+
+[node name="resume" type="Button" parent="HUD/pauseMenu/menu/buttons"]
+layout_mode = 2
+focus_next = NodePath("../mainMenu")
+theme_override_font_sizes/font_size = 25
+text = "Resume"
+
+[node name="mainMenu" type="Button" parent="HUD/pauseMenu/menu/buttons"]
+layout_mode = 2
+focus_next = NodePath("../quit")
+focus_previous = NodePath("../resume")
+theme_override_font_sizes/font_size = 25
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="HUD/pauseMenu/menu/buttons"]
+layout_mode = 2
+focus_previous = NodePath("../mainMenu")
+theme_override_font_sizes/font_size = 25
+text = "Quit
+"
+
+[connection signal="timeout" from="wallTimer" to="." method="_on_wall_timer_timeout"]
+[connection signal="pressed" from="HUD/pauseMenu/menu/buttons/resume" to="HUD/pauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="HUD/pauseMenu/menu/buttons/mainMenu" to="HUD/pauseMenu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="HUD/pauseMenu/menu/buttons/quit" to="HUD/pauseMenu" method="_on_quit_pressed"]

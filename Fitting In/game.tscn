@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0e05lup821t1"]
+
+[ext_resource type="Script" path="res://scripts/setup.gd" id="1_eiope"]
+[ext_resource type="PackedScene" uid="uid://cru22w5pf340b" path="res://Player.tscn" id="3_0sjn1"]
+[ext_resource type="Script" path="res://scripts/roomControls.gd" id="3_ql35d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csik5"]
+albedo_color = Color(0.58889, 0.301337, 0.886652, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8d2oe"]
+size = Vector3(12.7529, 1, 13.3589)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02si4"]
+albedo_color = Color(1, 0.0405029, 0.0223527, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_36lqv"]
+material = SubResource("StandardMaterial3D_02si4")
+size = Vector3(12, 0.1, 12)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_eiope")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_0sjn1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 2, 3)
+
+[node name="HUD" parent="CharacterBody3D" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="wallEnergy" parent="CharacterBody3D/HUD" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="airActionIndicator" parent="CharacterBody3D/HUD" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="room" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 5)
+script = ExtResource("3_ql35d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 0.0612924, 0.99812, 0, -0.99812, 0.0612924, 6, 6, 6)
+omni_range = 385.195
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="room"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="room/CSGCombiner3D"]
+layers = 16
+size = Vector3(16, 16, 16)
+material = SubResource("StandardMaterial3D_csik5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="room/CSGCombiner3D"]
+operation = 2
+size = Vector3(13.5, 13.5, 13.5)
+material = SubResource("StandardMaterial3D_csik5")
+
+[node name="Laser" type="RigidBody3D" parent="room"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 6, 0)
+gravity_scale = 0.5
+freeze = true
+
+[node name="laserGrid" type="Area3D" parent="room/Laser"]
+collision_layer = 0
+collision_mask = 6
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room/Laser/laserGrid"]
+shape = SubResource("BoxShape3D_8d2oe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="room/Laser/laserGrid"]
+mesh = SubResource("BoxMesh_36lqv")
+
+[node name="Timer" type="Timer" parent="room/Laser"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="newHole" from="room" to="." method="_on_room_new_hole"]
+[connection signal="body_entered" from="room/Laser/laserGrid" to="room" method="_on_laser_grid_body_entered"]
+[connection signal="timeout" from="room/Laser/Timer" to="room" method="_on_timer_timeout"]
+
+[editable path="CharacterBody3D"]
