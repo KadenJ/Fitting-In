@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/setup.gd" id="1_eiope"]
 [ext_resource type="PackedScene" uid="uid://cru22w5pf340b" path="res://Player.tscn" id="3_0sjn1"]
 [ext_resource type="Script" path="res://scripts/roomControls.gd" id="3_ql35d"]
+[ext_resource type="PackedScene" uid="uid://dav5vh4jq24xy" path="res://laser.tscn" id="4_kxpuy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csik5"]
 albedo_color = Color(0.58889, 0.301337, 0.886652, 1)
@@ -10,12 +11,7 @@ albedo_color = Color(0.58889, 0.301337, 0.886652, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8d2oe"]
 size = Vector3(12.7529, 1, 13.3589)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02si4"]
-albedo_color = Color(1, 0.0405029, 0.0223527, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_36lqv"]
-material = SubResource("StandardMaterial3D_02si4")
-size = Vector3(12, 0.1, 12)
+[sub_resource type="BoxMesh" id="BoxMesh_ab6ph"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_eiope")
@@ -66,8 +62,192 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="room/Laser/laserGrid"]
 shape = SubResource("BoxShape3D_8d2oe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="room/Laser/laserGrid"]
-mesh = SubResource("BoxMesh_36lqv")
+[node name="laser1" type="MeshInstance3D" parent="room/Laser/laserGrid"]
+transform = Transform3D(-11.995, 0, 0, 0, 1, 0, 0, 0, 0.183, 0, 0, -5.91932)
+mesh = SubResource("BoxMesh_ab6ph")
+skeleton = NodePath("../..")
+
+[node name="laser2" type="MeshInstance3D" parent="room/Laser/laserGrid"]
+transform = Transform3D(-11.995, 0, 0, 0, 1, 0, 0, 0, 0.183, 0, 0, 5.91694)
+mesh = SubResource("BoxMesh_ab6ph")
+skeleton = NodePath("../..")
+
+[node name="grid" type="Node3D" parent="room/Laser/laserGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.83432)
+
+[node name="Laser" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -1.8, 0.439, 0.007)
+
+[node name="Laser2" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -2, 0.439, 0.007)
+
+[node name="Laser3" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -2.2, 0.439, 0.007)
+
+[node name="Laser4" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -2.4, 0.439, 0.007)
+
+[node name="Laser5" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -2.6, 0.439, 0.007)
+
+[node name="Laser6" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -2.8, 0.439, 0.007)
+
+[node name="Laser7" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -3, 0.439, 0.007)
+
+[node name="Laser8" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -3.2, 0.439, 0.007)
+
+[node name="Laser9" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -3.4, 0.439, 0.007)
+
+[node name="Laser10" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -3.6, 0.439, 0.007)
+
+[node name="Laser11" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -3.8, 0.439, 0.007)
+
+[node name="Laser12" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -4, 0.439, 0.007)
+
+[node name="Laser13" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -4.2, 0.439, 0.007)
+
+[node name="Laser14" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -4.4, 0.439, 0.007)
+
+[node name="Laser15" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -4.6201, 0.439, 0.00699997)
+
+[node name="Laser16" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -4.8201, 0.439, 0.00699997)
+
+[node name="Laser17" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -5.0201, 0.439, 0.00699997)
+
+[node name="Laser18" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -5.2201, 0.439, 0.00699997)
+
+[node name="Laser19" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -5.45157, 0.439, 0.00699997)
+
+[node name="Laser20" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -5.65157, 0.439, 0.00699997)
+
+[node name="Laser21" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -5.85157, 0.439, 0.00699997)
+
+[node name="Laser22" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 2.48915, 0.439, 0.00699997)
+
+[node name="Laser23" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 2.28915, 0.439, 0.00699997)
+
+[node name="Laser24" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 2.08915, 0.439, 0.00699997)
+
+[node name="Laser25" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 1.88915, 0.439, 0.00699997)
+
+[node name="Laser26" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 1.68915, 0.439, 0.00699997)
+
+[node name="Laser27" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 1.48915, 0.439, 0.00699997)
+
+[node name="Laser28" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 1.28915, 0.439, 0.00699997)
+
+[node name="Laser43" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 3.92148, 0.439, 0.00699997)
+
+[node name="Laser44" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 3.72148, 0.439, 0.00699997)
+
+[node name="Laser45" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 3.52148, 0.439, 0.00699997)
+
+[node name="Laser46" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 3.32148, 0.439, 0.00699997)
+
+[node name="Laser47" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 3.12148, 0.439, 0.00699997)
+
+[node name="Laser48" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 2.92148, 0.439, 0.00699997)
+
+[node name="Laser49" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 2.72148, 0.439, 0.00699997)
+
+[node name="Laser50" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 5.35558, 0.439, 0.00699997)
+
+[node name="Laser57" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 5.556, 0.439, 0.007)
+
+[node name="Laser58" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 5.756, 0.439, 0.007)
+
+[node name="Laser51" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 5.15558, 0.439, 0.00699997)
+
+[node name="Laser52" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 4.95558, 0.439, 0.00699997)
+
+[node name="Laser53" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 4.75558, 0.439, 0.00699997)
+
+[node name="Laser54" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 4.55558, 0.439, 0.00699997)
+
+[node name="Laser55" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 4.35558, 0.439, 0.00699997)
+
+[node name="Laser56" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 4.15558, 0.439, 0.00699997)
+
+[node name="Laser29" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 1.08915, 0.439, 0.00699997)
+
+[node name="Laser30" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 0.889153, 0.439, 0.00699997)
+
+[node name="Laser31" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 0.689154, 0.439, 0.00699997)
+
+[node name="Laser32" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 0.489153, 0.439, 0.00699997)
+
+[node name="Laser33" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 0.289153, 0.439, 0.00699997)
+
+[node name="Laser34" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, 0.0891533, 0.439, 0.00699997)
+
+[node name="Laser35" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -0.110847, 0.439, 0.00699997)
+
+[node name="Laser36" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -0.330948, 0.439, 0.00699997)
+
+[node name="Laser37" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -0.530948, 0.439, 0.00699997)
+
+[node name="Laser38" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -0.730948, 0.439, 0.00699997)
+
+[node name="Laser39" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -0.930949, 0.439, 0.00699997)
+
+[node name="Laser40" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -1.16242, 0.439, 0.00699997)
+
+[node name="Laser41" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -1.36242, 0.439, 0.00699997)
+
+[node name="Laser42" parent="room/Laser/laserGrid/grid" instance=ExtResource("4_kxpuy")]
+transform = Transform3D(1, 0, 0, 0, -5.89667e-07, -1, 0, 13.49, -4.37114e-08, -1.56242, 0.439, 0.00699997)
 
 [node name="Timer" type="Timer" parent="room/Laser"]
 wait_time = 3.0
