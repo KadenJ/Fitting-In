@@ -97,3 +97,8 @@ func _process(delta):
 	if $wallTimer.time_left > 0:
 		$HUD/wallEnergy.value = $wallTimer.time_left
 	$HUD/airActionIndicator.button_pressed = airAction
+
+func _on_area_3d_body_entered(body):
+	var block = body.get_parent()
+	block.queue_free()
+	print("hit")

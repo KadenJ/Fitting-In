@@ -1,5 +1,6 @@
 extends Node3D
 var roomCube = preload("res://cube.tscn")
+var breakableCube = preload("res://breakableCube.tscn")
 var blockList = []
 
 var blockCoord:Vector3
@@ -123,10 +124,14 @@ func _on_room_new_hole():
 	missingBlock = randi() % len(blockList)
 	blockCoord = blockList[missingBlock].position
 	blockList[missingBlock].position = Vector3(15,15,15)
+	makeBreakableBlock()
 	print(missingBlock)
 	
 	#gives player 3 seconds before putting block back
 	await get_tree().create_timer(3).timeout
 	blockList[preBlock].position = preBlockCoord
 
-
+func makeBreakableBlock():
+	var block = breakableCube.instantiate()
+	block.position = blockCoord
+	add_child(block)

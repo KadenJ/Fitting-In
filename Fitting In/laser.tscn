@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dav5vh4jq24xy"]
+[gd_scene load_steps=5 format=3 uid="uid://dav5vh4jq24xy"]
 
 [ext_resource type="Script" path="res://scripts/laser.gd" id="1_4tbs6"]
 
@@ -14,9 +14,23 @@ emission_enabled = true
 emission = Color(0.972549, 0, 0, 1)
 emission_energy_multiplier = 10.0
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kngft"]
+height = 1.005
+radius = 0.025
+
 [node name="Laser" type="RayCast3D"]
 script = ExtResource("1_4tbs6")
 
 [node name="beamMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_u1b52")
 surface_material_override/0 = SubResource("StandardMaterial3D_dc54d")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495865, 0)
+shape = SubResource("CylinderShape3D_kngft")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
