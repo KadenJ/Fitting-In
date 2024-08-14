@@ -16,6 +16,108 @@ script = ExtResource("1_eiope")
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_0sjn1")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 2, 3)
 
+[node name="hand" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR" index="0"]
+surface_material_override/0 = null
+
+[node name="arm_lower" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand" index="0"]
+surface_material_override/0 = null
+
+[node name="index_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand" index="1"]
+surface_material_override/0 = null
+
+[node name="index_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/index_0" index="0"]
+surface_material_override/0 = null
+
+[node name="index_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/index_0/index_1" index="0"]
+surface_material_override/0 = null
+
+[node name="middle_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand" index="2"]
+surface_material_override/0 = null
+
+[node name="middle_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/middle_0" index="0"]
+surface_material_override/0 = null
+
+[node name="middle_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/middle_0/middle_1" index="0"]
+surface_material_override/0 = null
+
+[node name="pinky_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand" index="3"]
+surface_material_override/0 = null
+
+[node name="pinky_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/pinky_0" index="0"]
+surface_material_override/0 = null
+
+[node name="pinky_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/pinky_0/pinky_1" index="0"]
+surface_material_override/0 = null
+
+[node name="ring_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand" index="4"]
+surface_material_override/0 = null
+
+[node name="ring_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/ring_0" index="0"]
+surface_material_override/0 = null
+
+[node name="ring_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/ring_0/ring_1" index="0"]
+surface_material_override/0 = null
+
+[node name="thumb_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand" index="5"]
+surface_material_override/0 = null
+
+[node name="thumb_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/thumb_0" index="0"]
+surface_material_override/0 = null
+
+[node name="thumb_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handR/hand/thumb_0/thumb_1" index="0"]
+surface_material_override/0 = null
+
+[node name="hand" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL" index="0"]
+surface_material_override/0 = null
+
+[node name="arm_lower" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand" index="0"]
+surface_material_override/0 = null
+
+[node name="index_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand" index="1"]
+surface_material_override/0 = null
+
+[node name="index_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/index_0" index="0"]
+surface_material_override/0 = null
+
+[node name="index_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/index_0/index_1" index="0"]
+surface_material_override/0 = null
+
+[node name="middle_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand" index="2"]
+surface_material_override/0 = null
+
+[node name="middle_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/middle_0" index="0"]
+surface_material_override/0 = null
+
+[node name="middle_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/middle_0/middle_1" index="0"]
+surface_material_override/0 = null
+
+[node name="pinky_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand" index="3"]
+surface_material_override/0 = null
+
+[node name="pinky_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/pinky_0" index="0"]
+surface_material_override/0 = null
+
+[node name="pinky_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/pinky_0/pinky_1" index="0"]
+surface_material_override/0 = null
+
+[node name="ring_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand" index="4"]
+surface_material_override/0 = null
+
+[node name="ring_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/ring_0" index="0"]
+surface_material_override/0 = null
+
+[node name="ring_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/ring_0/ring_1" index="0"]
+surface_material_override/0 = null
+
+[node name="thumb_0" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand" index="5"]
+surface_material_override/0 = null
+
+[node name="thumb_1" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/thumb_0" index="0"]
+surface_material_override/0 = null
+
+[node name="thumb_2" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/viewModelCamera/fpsRig/handL/hand/thumb_0/thumb_1" index="0"]
+surface_material_override/0 = null
+
 [node name="HUD" parent="CharacterBody3D" index="3"]
 metadata/_edit_use_anchors_ = true
 
@@ -31,7 +133,8 @@ script = ExtResource("3_ql35d")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="room"]
 transform = Transform3D(1, 0, 0, 0, 0.0612924, 0.99812, 0, -0.99812, 0.0612924, 0, 0, 0)
-layers = 7
+layers = 5
+light_cull_mask = 4294967293
 omni_range = 385.195
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="room"]

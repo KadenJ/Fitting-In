@@ -19,7 +19,7 @@ func _process(delta):
 		beam_mesh.mesh.height = cast_point.y 
 		beam_mesh.position.y = cast_point.y/2
 		
-		
+	$Area3D/CollisionShape3D.disabled = !$".".visible
 
 #detects if player is hit by laser
 func _on_area_3d_body_entered(body):

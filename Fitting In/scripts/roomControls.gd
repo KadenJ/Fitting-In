@@ -16,7 +16,7 @@ func _ready():
 	grid = $Laser/laserGrid/grid
 
 var laserUp = true
-func _physics_process(delta):
+func _physics_process(_delta):
 	#checks global position of laser, if passed lowest pos goes back up
 	if laser != null:
 		if laser.position.y <= laserLowest:
@@ -58,15 +58,15 @@ func _on_timer_timeout():
 
 #add and randomize lasers
 func laserControl():
-	#activates amount of lasers in laserCount, add more lasers ass game progresses
+	#activates amount of lasers in laserCount, add more lasers as game progresses
 	for x in laserCount:
-		var laser = randi_range(0, grid.get_child_count()-1)
-		if grid.get_child(laser).visible == false:
-			grid.get_child(laser).show()
-		else: while grid.get_child(laser).visible == true:
-			laser = randi_range(0, grid.get_child_count()-1)
-			if grid.get_child(laser).visible == false:
-				grid.get_child(laser).show()
+		var _laser = randi_range(0, grid.get_child_count()-1)
+		if grid.get_child(_laser).visible == false:
+			grid.get_child(_laser).show()
+		else: while grid.get_child(_laser).visible == true:
+			_laser = randi_range(0, grid.get_child_count()-1)
+			if grid.get_child(_laser).visible == false:
+				grid.get_child(_laser).show()
 				break
 	
 	#check if all lasers are active (delete code)

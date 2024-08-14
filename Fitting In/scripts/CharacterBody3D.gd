@@ -92,7 +92,7 @@ func _on_wall_timer_timeout():
 	timerStart = false
 
 #HUD Scripts
-func _process(delta):
+func _process(_delta):
 	#updates the energy bar and air action hud
 	if $wallTimer.time_left > 0:
 		$HUD/wallEnergy.value = $wallTimer.time_left

@@ -1,6 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8cwy605aeg13"]
+[gd_scene load_steps=5 format=3 uid="uid://c8cwy605aeg13"]
+
+[ext_resource type="Texture2D" uid="uid://47c31lmxei2l" path="res://shaders and materials/mats/wall material2.png" id="1_rp6er"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mp0hc"]
+albedo_texture = ExtResource("1_rp6er")
 
 [sub_resource type="BoxMesh" id="BoxMesh_f2xlp"]
+material = SubResource("StandardMaterial3D_mp0hc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjqmq"]
 margin = 0.0

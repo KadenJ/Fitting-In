@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="1_vkjuc"]
 [ext_resource type="Material" uid="uid://bp8hwl3oribl0" path="res://arm model/materials/handsMaterial.tres" id="2_1sjtr"]
 [ext_resource type="Script" path="res://scripts/pauseMenu.gd" id="2_3cn6c"]
-[ext_resource type="Shader" path="res://shaders/pauseMenu.gdshader" id="3_o83jt"]
+[ext_resource type="Shader" path="res://shaders and materials/pauseMenu.gdshader" id="4_tgvva"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5bvio"]
 radius = 0.332789
@@ -565,7 +565,7 @@ shadow_mesh = SubResource("ArrayMesh_b0c6b")
 radius = 1.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fgmt4"]
-shader = ExtResource("3_o83jt")
+shader = ExtResource("4_tgvva")
 shader_parameter/amount = 3.0
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
