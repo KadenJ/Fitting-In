@@ -107,15 +107,14 @@ func buildRoom():
 	
 	roomMade = true
 
+#cleans up room, sets room made to false
 func newRoundSetup():
-	#cleans up room, sets room made to false
 	for x in len(blockList):
 		blockList[x].queue_free()
 	buildRoom()
 
+#when new hole is needed, hole is replaced
 func _on_room_new_hole():
-	#when new hole is needed, hole is replaced
-	
 	#saves previous block data
 	var preBlock = missingBlock
 	var preBlockCoord = blockCoord
@@ -131,6 +130,7 @@ func _on_room_new_hole():
 	await get_tree().create_timer(3).timeout
 	blockList[preBlock].position = preBlockCoord
 
+#puts breakable block in empty spot
 func makeBreakableBlock():
 	var block = breakableCube.instantiate()
 	block.position = blockCoord
